@@ -23,9 +23,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y ninja-build
 
       # QPM (Quest Package Manager) CLI — resolves beatsaber-hook/bsml/etc.
-      # VERIFY: if this download URL 404s (QPM releases move occasionally),
-      # grab the current Linux binary link from
-      # https://github.com/QuestPackageManager/QPM.CLI/releases/latest
+      - name: Install QPM
+        run: |
+          wget -q -O qpm https://github.com
+          chmod +x qpm
+          sudo mv qpm /usr/local/bin/qpm
+
       # and swap it in below.
       - name: Install QPM
         run: |
