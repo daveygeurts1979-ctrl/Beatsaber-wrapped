@@ -1,0 +1,53 @@
+{
+  "version": "0.4.0",
+  "sharedDir": ".",
+  "dependenciesDir": "extern",
+  "info": {
+    "name": "BeatSaberWrapped",
+    "id": "beatsaberwrapped",
+    "version": "0.1.0",
+    "url": null,
+    "additionalData": {
+      "overrideSoName": "libbeatsaberwrapped.so",
+      "cmake": true
+    }
+  },
+  "workspace": {
+    "scripts": {
+      "build": [
+        "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=24 -DANDROID_STL=c++_shared",
+        "cmake --build build"
+      ],
+      "qmod": [
+        "qpm qmod build"
+      ]
+    },
+    "qmodIncludeDirs": [],
+    "qmodOutput": null,
+    "ndk": {
+      "version": "*"
+    }
+  },
+  "dependencies": [
+    {
+      "id": "beatsaber-hook",
+      "versionRange": "*",
+      "additionalData": {}
+    },
+    {
+      "id": "custom-types",
+      "versionRange": "*",
+      "additionalData": {}
+    },
+    {
+      "id": "paper2_scotland2",
+      "versionRange": "*",
+      "additionalData": {}
+    },
+    {
+      "id": "bsml",
+      "versionRange": "*",
+      "additionalData": {}
+    }
+  ]
+}
